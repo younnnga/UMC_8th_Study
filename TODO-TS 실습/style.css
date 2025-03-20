@@ -22,18 +22,18 @@ body {
   text-align: center;
 }
 
-.todo-container__header { /* 오타 수정 */
+.todo-container_header {
   font-size: 24px;
   margin-bottom: 16px;
 }
 
-.todo-container__form {
+.todo-container_form {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.todo-container__input {
+.todo-container_input {
   flex: 1;
   padding: 8px;
   border: 1px solid #ccc;
@@ -41,7 +41,7 @@ body {
   font-size: 14px;
 }
 
-.todo-container__button {
+.todo-container_button {
   background-color: #28a745;
   color: white;
   border: none;
@@ -51,7 +51,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.todo-container__button:hover {
+.todo-container_button:hover {
   background-color: #218838;
 }
 
@@ -61,25 +61,26 @@ body {
   gap: 20px;
 }
 
-.render-container__title { /* 오타 수정 */
+.render-container_title {
   font-size: 18px;
   margin-bottom: 10px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
-.render-container__section {
+.render-container_section {
   width: 100%;
   text-align: left;
 }
 
-.render-container__list {
+.render-contaier_list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.render-container__item {
+.render-container_item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,23 +89,25 @@ body {
   background-color: #f9f9f9;
   border-radius: 6px;
   margin-bottom: 6px;
-  width: 100%; /* 너비를 100%로 수정 */
+  width: 100%;
 }
 
-.render-container__item-text {
+.render-container_item-text {
   flex: 1;
+  /* white-space: nowrap; */
 }
 
-.render-container__item-button {
+.render-container_item-button {
   background-color: #dc3545;
   color: white;
   border: none;
   padding: 6px 10px;
   cursor: pointer;
   border-radius: 6px;
-  transition: background-color 0.3s ease;
+  font-size: 12px;
+  transition: background-color 0.3 ease;
 }
 
-.render-container__item-button:hover {
+.render-container_item-button:hover {
   background-color: #c82333;
 }
