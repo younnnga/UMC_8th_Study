@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: pretendard;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 80px 200px auto 80px;
+  width: 1000%;
+  margin: 20px auto;
+}
+
+.container1{
+  display: grid;
+  grid-template-columns: 1fr 2fr; 
+  grid-column: span 2;
+}
+
+
+.header {
+  background-color: rgb(21, 21, 53);
+  
+  color: white;
+  text-align: center;
+  padding:30px;
+
+}
+
+.menu {
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding:30px;
+}
+
+.HERO {
+  background-color: rgb(126, 148, 237);
+  color: white;
+  text-align: center;
+  grid-column: span 2;
+  padding:100px;
+}
+
+.container2{
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  grid-column: span 2;
+  justify-content: space-between;
+}
+
+.main{
+  background-color:midnightblue;
+  color:white;
+  padding: 100px;
+
+}
+
+.right-sidebar {
+  display: grid;
+  align-items: end;
+}
+
+.image {
+  background-color:aquamarine;
+  text-align: center;
+  width:150px;
+  padding:50px;
+  justify-self: end;
+}
+
+
+.extra {
+  background-color:rgb(40, 120, 93);
+  text-align: center;
+  width:150px;
+  padding:50px;
+  justify-self: end; 
+}
+
+.banner {
+  background-color: yellow;
+  text-align: center;
+  padding:40px;
+}
