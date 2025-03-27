@@ -6,7 +6,7 @@
 
 body {
   font-family: pretendard;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
 
@@ -28,11 +28,10 @@ body {
 
 .header {
   background-color: rgb(21, 21, 53);
-  
+
   color: white;
   text-align: center;
   padding:30px;
-
 }
 
 .menu {

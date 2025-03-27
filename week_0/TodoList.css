@@ -1,0 +1,113 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eff5ff;
+}
+
+.todo-container {
+  text-align: center;
+}
+
+.todo-container__header { 
+  font-size: 30px;
+  margin-bottom: 13px;
+  border-bottom: 1.5px solid #D9E2FF; /* 선 추가 */
+  padding-bottom: 100px; /* 선과 텍스트 간의 간격 */
+
+}
+
+.todo-container__form {
+  display: flex;
+  margin-bottom: 20px;
+  width: 700px;
+}
+
+.todo-container__input {
+  flex: 1;
+  padding: 10px;
+  padding-left: 20px; 
+  border: 1px solid #000000;
+  font-size: 14px;
+}
+
+.todo-container__input::placeholder {
+  color: #8eadc9; 
+  font-style: italic; /* 텍스트 기울기 */
+}
+
+.todo-container__input:focus {
+  outline: 0.5px solid #007bff;
+}
+
+
+.render-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start; /* 상단 정렬로 수정 */
+  align-items: center;
+  padding: 12px;
+}
+
+.render-container__title { 
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom:40px;
+  display: inline-block;
+  border-bottom: 3px solid #D9E2FF;/* 원하는 색과 두께로 선 추가 */
+  padding-bottom: 5px; /* 선과 텍스트 간의 간격 조정 */
+  justify-content: center;
+  position: sticky; /* 스크롤 시 타이틀 고정 */
+  top: 0;
+  background-color: #eff5ff; /* 배경색을 지정하여 다른 요소와 겹치지 않도록 설정 */
+  z-index: 10; /* 다른 요소 위에 겹치지 않게 설정 */
+}
+
+
+.render-container__section {
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+}
+
+.render-container__list {
+  list-style: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto; /* 세로로 스크롤 가능 */
+  max-height: 300px; /* 리스트 영역의 최대 높이 설정 */
+}
+
+.render-container__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-bottom: 3px solid #D9E2FF;
+  margin-bottom: 10px;
+  width: 100%; /* 너비를 100%로 수정 */
+}
+.render-container__item-text {
+  flex: 1;
+}
+
+.render-container__item-button {
+  background-color: aquamarine;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer
+}
