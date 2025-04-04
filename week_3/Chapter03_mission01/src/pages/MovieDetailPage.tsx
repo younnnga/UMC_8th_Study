@@ -46,7 +46,6 @@ export default function MovieDetailPage() {
           console.error(error.message); // 콘솔에 에러 메시지 출력
         }
         setIsError(true);
-        setIsError(true);
       } finally {
         setIsLoading(false);
       }
@@ -58,7 +57,7 @@ export default function MovieDetailPage() {
   // 로딩 중일 때 처리
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen bg-black">
         <LoadingSpinner />
       </div>
     );
@@ -83,22 +82,22 @@ export default function MovieDetailPage() {
   }
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto p-6 bg-black text-white">
       <div className="flex items-center gap-6 mb-10">
         <img
           src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
           alt={movie.title}
-          className="rounded-lg shadow-lg"
+          className="rounded-lg shadow-lg w-72 h-96 object-cover"
         />
         <div className="max-w-xl">
-          <h1 className="text-3xl font-bold">{movie.title}</h1>
-          <p className="text-xl text-gray-600 mt-2">{movie.release_date}</p>
-          <p className="text-lg text-gray-700 mt-4">{movie.overview}</p>
+          <h1 className="text-5xl font-bold">{movie.title}</h1>
+          <p className="text-xl text-gray-400 mt-2">{movie.release_date}</p>
+          <p className="text-lg text-gray-300 mt-4">{movie.overview}</p>
         </div>
       </div>
 
       <div className="mt-12">
-        <h2 className="text-2xl font-semibold mb-4">출연 및 감독</h2>
+        <h2 className="text-3xl font-semibold mb-4">출연 및 감독</h2>
         <div className="flex gap-8">
           {/* 감독 */}
           <div className="w-1/3">
@@ -106,9 +105,16 @@ export default function MovieDetailPage() {
             {credits?.crew
               ?.filter((member) => member.job === 'Director')
               .map((director) => (
-                <p key={director.name} className="text-lg">
-                  {director.name}
-                </p>
+                <div key={director.name} className="mb-4">
+                  {director.profile_path && (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w200${director.profile_path}`}
+                      alt={director.name}
+                      className="rounded-full mb-2 w-32 h-32 object-cover"
+                    />
+                  )}
+                  <p className="text-lg">{director.name}</p>
+                </div>
               ))}
           </div>
 
@@ -116,9 +122,18 @@ export default function MovieDetailPage() {
           <div className="w-2/3">
             <h3 className="text-xl font-medium mb-2">출연</h3>
             {credits?.cast?.slice(0, 5).map((actor) => (
-              <div key={actor.cast_id} className="mb-4">
-                <p className="text-lg font-semibold">{actor.name}</p>
-                <p className="text-sm text-gray-500">{actor.character}</p>
+              <div key={actor.cast_id} className="mb-4 flex items-center gap-4">
+                {actor.profile_path && (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                    alt={actor.name}
+                    className="rounded-full w-16 h-16 object-cover"
+                  />
+                )}
+                <div>
+                  <p className="text-lg font-semibold">{actor.name}</p>
+                  <p className="text-sm text-gray-400">{actor.character}</p>
+                </div>
               </div>
             ))}
           </div>

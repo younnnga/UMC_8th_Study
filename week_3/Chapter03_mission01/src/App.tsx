@@ -7,26 +7,25 @@ import MovieDetailPage from './pages/MovieDetailPage';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage/>,
-    errorElement: <NotFoundPage/>,
+    element: <HomePage />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: 'movies/:category',
-        element: <MoviePage/>,
-      },
-      {
-        path: 'movies/:category/:movieId',
-        element: <MovieDetailPage/>
+        element: <MoviePage />,
+        errorElement: <NotFoundPage />,
       },
     ],
   },
+  {
+    path: 'movie/:movieId',
+    element: <MovieDetailPage />,
+    errorElement: <NotFoundPage />,
+  },
 ]);
-
-
 
 function App() {
   return <RouterProvider router={router} />;
-};
+}
 
 export default App;
-
