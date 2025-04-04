@@ -1,12 +1,31 @@
+import HomePage from './pages/HomePage';
 import MoviePage from './pages/MoviePage';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import NotFoundPage from './pages/NotFoundPage';
+import MovieDetailPage from './pages/MovieDetailPage';
 
-const App = () => {
-  return (
-    <div className="container mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Popular Movies</h1>
-      <MoviePage />
-    </div>
-  );
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomePage/>,
+    errorElement: <NotFoundPage/>,
+    children: [
+      {
+        path: 'movies/:category',
+        element: <MoviePage/>,
+      },
+      {
+        path: 'movies/:category/:movieId',
+        element: <MovieDetailPage/>
+      },
+    ],
+  },
+]);
+
+
+
+function App() {
+  return <RouterProvider router={router} />;
 };
 
 export default App;
