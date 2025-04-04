@@ -21,3 +21,17 @@ export type MovieResponse = {
   total_pages: number;
   total_results: number;
 };
+
+export type MovieCredits = {
+  cast: {
+    cast_id: number;
+    name: string;
+    character: string;
+    profile_path: string | null;
+  }[];
+  crew: {
+    job: string;
+    name: string;
+    profile_path: string | null;
+  }[];
+};
