@@ -1,14 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const HomeLayout = () => {
+  const navigate = useNavigate(); 
+
   return (
     <div className="h-dvh flex flex-col bg-black text-white">
       <nav className="flex items-center justify-between px-6 py-4 bg-neutral-900">
         <div className="text-pink-500 font-bold text-lg">돌려돌려LP판</div>
         <div className="space-x-4">
-          <button className="bg-black text-white hover:text-pink-400 px-4 py-1 rounded">로그인</button>
-          <button className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-1 rounded">
-            회원가입
+          <button className="bg-black text-white hover:text-pink-400 px-4 py-1 rounded"
+          onClick={() => navigate("/login")} // 로그인 페이지로 이동
+          >로그인</button>
+          <button className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-1 rounded"
+          onClick={() => navigate("/SignupPage")} // 로그인 페이지로 이동
+          >회원가입
           </button>
         </div>
       </nav>
