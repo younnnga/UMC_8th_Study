@@ -1,15 +1,14 @@
 import { FaShoppingCart } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
-import { calculTotals, type CartState } from '../slices/cartSlice';
 import { useEffect } from 'react';
+import { useCartActions, useCartInfo } from '../hooks/useCartstore';
 
 const Navbar = () => {
-  const {amount, cartItems} = useSelector((state): CartState => state.cart);
-  const dispatch = useDispatch();
+  const {amount,cartItems} = useCartInfo();
+  const {calculateTotals} = useCartActions();
 
   useEffect(()=> {
-    dispatch(calculTotals());
-  },[dispatch,cartItems]);
+    calculateTotals();
+  },[cartItems,calculateTotals]);
 
   return (
     <div className='flex justify-between items-center p-4 bg-gray-800 text-white'>

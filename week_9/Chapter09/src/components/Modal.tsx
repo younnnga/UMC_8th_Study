@@ -1,21 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
-import type { RootState } from '../store/store';
-import { closeModal } from '../slices/ModalSlice';
-import { clearCart } from '../slices/cartSlice'; // 기존 action
+import { useCartInfo, useCartActions } from '../hooks/useCartstore';
 
 const Modal = () => {
-  const dispatch = useDispatch();
-  const isOpen = useSelector((state: RootState) => state.modal.isOpen);
+  const { isModalOpen } = useCartInfo();
+  const { clearCart, closeModal } = useCartActions();
 
-  if (!isOpen) return null;
+  if (!isModalOpen) return null;
 
   const handleCancel = () => {
-    dispatch(closeModal());
+    closeModal();
   };
 
   const handleConfirm = () => {
-    dispatch(clearCart());
-    dispatch(closeModal());
+    clearCart();
+    closeModal();
   };
 
   return (
